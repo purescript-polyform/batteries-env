@@ -1,3 +1,4 @@
-# polyform-node-env
+# polyform-batteries-env
 
-Manage your node process env `Object` by using polyform `Dual` or `Validator`.
+Validators and duals for env (a `Map String String`) management.
+
