@@ -9,6 +9,7 @@ module Polyform.Batteries.Env.Validators
   , MissingValue
   , optional
   , optionalValue
+  , Pure
   , required
   , value
   )
@@ -18,6 +19,7 @@ import Prelude
 
 import Data.Array (singleton) as Array
 import Data.Bifunctor (lmap)
+import Data.Identity (Identity)
 import Data.Map (lookup) as Map
 import Data.Maybe (Maybe(..))
 import Data.String.Regex (Regex)
@@ -27,11 +29,13 @@ import Data.Traversable (sequence)
 import Data.TraversableWithIndex (traverseWithIndex)
 import Data.Validation.Semigroup (V)
 import Data.Variant (inj)
-import Polyform.Batteries (Validator, Errors, invalid) as Batteries
-import Polyform.Batteries.Env.Types (Env, Key, Validator, Value, fromValidator)
+import Polyform.Batteries (Errors, Validator, invalid) as Batteries
+import Polyform.Batteries.Env.Types (Env, Key, Value, Validator, fromValidator)
 import Polyform.Validator (liftFn, liftFnMV, liftFnV, lmapValidator, runValidator)
 import Type.Prelude (SProxy(..))
 import Type.Row (type (+))
+
+type Pure e a b = Validator Identity e a b
 
 type Field m e b = Batteries.Validator m e (Maybe String) b
 type FieldValue m e b = Batteries.Validator m e String b
