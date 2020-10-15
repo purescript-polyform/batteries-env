@@ -1,5 +1,5 @@
 -- | You can use `Batteries.Integer.validator` or `Batteries.Number.validator`
--- | directly and other `String` based validators as field value validator like:
+-- | directly and other `String` based validators as field value validators.
 module Polyform.Batteries.Env.Validators
   ( boolean
   , Field
@@ -63,8 +63,7 @@ optionalValue fieldValidator = liftFnMV \mv → case mv of
   Nothing → pure (pure Nothing)
   Just v → runValidator (Just <$> fieldValidator) v
 
-
--- | Some ad hoc opt in encoding for booleans and arrays.
+-- | Some ad hoc encoding for booleans and arrays.
 _booleanExpected = SProxy ∷ SProxy "booleanExpected"
 
 type BooleanExpected e = (booleanExpected ∷ Value | e)
