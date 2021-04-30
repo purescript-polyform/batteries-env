@@ -146,7 +146,7 @@ let polyform =
   , version = "master"
   }
 
-let polyform-batteries =
+let polyform-batteries-core =
   { dependencies =
     [ "affjax"
     , "argonaut"
@@ -159,7 +159,7 @@ let polyform-batteries =
     , "record-extra"
     , "test-unit"
     ]
-  , repo = "https://github.com/purescript-polyform/batteries.git"
+  , repo = "https://github.com/purescript-polyform/batteries-core.git"
   , version = "master"
   }
 
@@ -167,7 +167,7 @@ let polyform-batteries =
 
 let additions = {
   polyform = ../polyform/spago.dhall as Location,
-  polyform-batteries = ../polyform-batteries/spago.dhall as Location -- polyform-batteries
+  polyform-batteries-core = ../batteries-core/spago.dhall as Location -- polyform-batteries
 }
 
 in  upstream // overrides // additions
