@@ -19,7 +19,7 @@ import Data.Maybe (Maybe(..))
 import Polyform.Batteries (Validator, invalid) as Batteries
 import Polyform.Batteries.Env.Types (Env, Key, Value, Validator, fromValidator)
 import Polyform.Validator (liftFn, liftFnMV, liftFnV, runValidator)
-import Type.Prelude (SProxy(..))
+import Type.Proxy (Proxy(..))
 import Type.Row (type (+))
 
 type Pure e a b
@@ -31,7 +31,7 @@ type Field m e b
 type FieldValue m e b
   = Batteries.Validator m e String b
 
-_missingValue = SProxy ∷ SProxy "missingValue"
+_missingValue = Proxy ∷ Proxy "missingValue"
 
 type MissingValue e
   = ( missingValue ∷ Unit | e )
@@ -71,7 +71,7 @@ optionalValue fieldValidator =
     Just v → runValidator (Just <$> fieldValidator) v
 
 -- | Some ad hoc encoding for booleans and arrays.
-_booleanExpected = SProxy ∷ SProxy "booleanExpected"
+_booleanExpected = Proxy ∷ Proxy "booleanExpected"
 
 type BooleanExpected e
   = ( booleanExpected ∷ Value | e )
