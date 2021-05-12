@@ -33,4 +33,3 @@ type Dual m errs i o = Polyform.Validator.Dual.Dual m (Errors errs) i o
 
 fromDual ∷ ∀ errs i m. Monad m ⇒ Key → Batteries.Dual m errs i ~> Dual m errs i
 fromDual name = Dual.hoistParser (fromValidator name)
-
