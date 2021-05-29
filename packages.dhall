@@ -31,8 +31,8 @@ in  upstream
       , "validation"
       , "variant"
       ]
-    , repo = "https://github.com/jordanmartinez/purescript-polyform.git"
-    , version = "updateTov0.14.1"
+    , repo = "https://github.com/purescript-polyform/polyform.git"
+    , version = "master"
     }
   with polyform-batteries-core =
     { dependencies =
@@ -56,6 +56,6 @@ in  upstream
       , "variant"
       ]
     , repo =
-        "https://github.com/jordanmartinez/purescript-polyform-validators.git"
-    , version = "updateTov0.14.1"
+        "https://github.com/purescript-polyform/batteries-core.git"
+    , version = "master"
     }
