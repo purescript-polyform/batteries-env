@@ -17,17 +17,19 @@ type Value = String
 
 type Env = Map Key Value
 
-type Errors (errs ∷ # Type) = Array { key ∷ Key, errors ∷ Batteries.Errors errs }
+type Errors :: Row Type -> Type
+type Errors errs = Array { key ∷ Key, errors ∷ Batteries.Errors errs }
 
-type Validator m (errs ∷ # Type) i o = Polyform.Validator m (Errors errs) i o
+type Validator :: (Type -> Type) -> Row Type -> Type -> Type -> Type
+type Validator m errs i o = Polyform.Validator m (Errors errs) i o
 
 _env = SProxy ∷ SProxy "env"
 
 fromValidator ∷ ∀ errs m i. Monad m ⇒ Key → Batteries.Validator m errs i ~> Validator m errs i
 fromValidator key = lmapValidator (Array.singleton <<< { key, errors: _ })
 
-type Dual m (errs ∷ # Type) i o = Polyform.Validator.Dual.Dual m (Errors errs) i o
+type Dual :: (Type -> Type) -> Row Type -> Type -> Type -> Type
+type Dual m errs i o = Polyform.Validator.Dual.Dual m (Errors errs) i o
 
 fromDual ∷ ∀ errs i m. Monad m ⇒ Key → Batteries.Dual m errs i ~> Dual m errs i
 fromDual name = Dual.hoistParser (fromValidator name)
-
