@@ -1,0 +1,27 @@
+{
+    "name": "purescript-my-project",
+    "license": [
+        "BSD-3-Clause"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/purescript-polyform/batteries-env.git"
+    },
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "output"
+    ],
+    "dependencies": {
+        "purescript-arrays": "^v7.1.0",
+        "purescript-identity": "^v6.0.0",
+        "purescript-maybe": "^v6.0.0",
+        "purescript-ordered-collections": "^v3.0.0",
+        "purescript-polyform": "^v0.9.1",
+        "purescript-polyform-batteries-core": "https://github.com/purescript-polyform/batteries-core.git#v0.3.0",
+        "purescript-prelude": "^v6.0.1",
+        "purescript-psci-support": "^v6.0.0",
+        "purescript-typelevel-prelude": "^v7.0.0"
+    }
+}
