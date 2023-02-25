@@ -1,8 +1,5 @@
-{-
-Welcome to a Spago project!
-You can edit this file as you like.
--}
 { name = "my-project"
+, license = "BSD-3-Clause"
 , dependencies =
   [ "arrays"
   , "identity"
@@ -15,5 +12,6 @@ You can edit this file as you like.
   , "typelevel-prelude"
   ]
 , packages = ./packages.dhall
+, repository = "https://github.com/purescript-polyform/batteries-env.git"
 , sources = [ "src/**/*.purs", "test/**/*.purs" ]
 }
